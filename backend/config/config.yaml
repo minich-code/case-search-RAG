@@ -1,0 +1,26 @@
+
+embedding:
+  model_name: "voyage-law-2"
+pinecone:
+  index_name: "legal-case-search-dense"
+  region: "us-east-1"
+  cloud: "aws"
+retrieval:
+  top_k_candidates: 5
+reranker:
+  model_name: "BAAI/bge-reranker-base"
+  top_n: 5
+generation:
+  max_tokens: 1024
+  providers:
+
+    - model_name: "deepseek-ai/DeepSeek-V3"
+      provider: "together"
+    - model_name: "llama-3.3-70b-versatile"
+      provider: "groq"
+    - model_name: "gpt-4o"
+      provider: "openai"
+    - model_name: "claude-3-opus-20240229"
+      provider: "anthropic"
+response:
+  max_citations: 3
